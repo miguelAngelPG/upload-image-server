@@ -19,7 +19,7 @@ export async function POST(req, res) {
         }
 
         const fileName = 'currentReading.jpg'
-        const filePath = path.join(process.cwd(), 'public', fileName)
+        const filePath = path.join(process.cwd(), 'public', file.name)
 
         writeFile(filePath, buffer)
 
