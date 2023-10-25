@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react"
+import { ChangeEvent, FormEvent, useState } from "react"
 import Image from "next/image"
 
 function HomePage() {
@@ -10,7 +10,22 @@ function HomePage() {
     e.preventDefault()
     if (!file) return
 
-    console.log(file)
+    try {
+        const data = new FormData()
+        data.set("file", file)
+
+        const res = await fetch("/api/upload", {
+            method: "POST",
+            body: data,
+        })
+      console.log(res)
+
+      if (res.ok) {
+        console.log("File uploaded successfully")
+      }
+    } catch (error) {
+      console.error(error)
+    }
   };
 
   const handleFileChange = (e) => {
