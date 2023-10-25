@@ -1,4 +1,4 @@
-"use client";
+"use client"
 
 import { ChangeEvent, FormEvent, useState } from "react"
 import Image from "next/image"
@@ -18,20 +18,20 @@ function HomePage() {
             method: "POST",
             body: data,
         })
-      console.log(res)
+        console.log(res)
 
-      if (res.ok) {
-        console.log("File uploaded successfully")
-      }
+        if (res.ok) {
+            console.log("File uploaded successfully")
+        }
     } catch (error) {
-      console.error(error)
+        console.error(error)
     }
-  };
+  }
 
   const handleFileChange = (e) => {
     if (!e.target.files?.[0]) return
     setFile(e.target.files?.[0])
-  };
+  }
 
   return (
     <div className="flex h-screen justify-center items-center">
@@ -62,7 +62,7 @@ function HomePage() {
         )}
       </div>
     </div>
-  );
+  )
 }
 
-export default HomePage;
+export default HomePage
